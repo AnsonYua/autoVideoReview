@@ -1,0 +1,9 @@
+.env.local
+__pycache__/
+*.pyc
+data/
+.venv/
+.chrome-debug-profile/
+.playwright-grok-profile/
+tmp/
+*.egg-info/

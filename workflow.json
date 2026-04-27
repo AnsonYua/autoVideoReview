@@ -1,0 +1,20 @@
+{
+  "1": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": ""
+    },
+    "_meta": {
+      "title": "prompt"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": ""
+    },
+    "_meta": {
+      "title": "negative"
+    }
+  }
+}
