@@ -1,23 +1,35 @@
 from __future__ import annotations
 
 import argparse
-import json
 import os
 import shlex
+import sys
 import time
-from dataclasses import asdict
 from pathlib import Path
 
 from grok_workflow.adapters.comfy_api import ComfyUIApiAdapter
 from grok_workflow.adapters.grok_cli import CodexCliGrokAdapter
 from grok_workflow.adapters.telegram import TelegramBotGateway
 from grok_workflow.config import AppConfig
-from grok_workflow.models import ShotContext, ShotIteration
 from grok_workflow.services.orchestrator import WorkflowOrchestrator
 from grok_workflow.services.project_ingest import ProjectIngestService
 from grok_workflow.services.telegram_command_processor import TelegramCommandProcessor
 from grok_workflow.services.workflow_runner import WorkflowRunner
 from grok_workflow.storage import Storage
+
+
+def load_env_file(path: Path = Path(".env.local")) -> None:
+    if not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or "=" not in stripped:
+            continue
+        key, value = stripped.split("=", 1)
+        key = key.strip()
+        if not key or key in os.environ:
+            continue
+        os.environ[key] = value.strip().strip('"').strip("'")
 
 
 def load_config() -> AppConfig:
@@ -56,128 +68,35 @@ def build_orchestrator(config: AppConfig) -> WorkflowOrchestrator:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Grok workflow orchestrator")
-    subparsers = parser.add_subparsers(dest="command", required=True)
-
-    import_parser = subparsers.add_parser("import")
-    import_parser.add_argument("file_path")
-
-    start_parser = subparsers.add_parser("start")
-    start_parser.add_argument("project_id")
-
-    run_parser = subparsers.add_parser("run-bot")
-    run_parser.add_argument("project_id")
-    run_parser.add_argument("--idle-sleep", type=float, default=1.0)
-
-    review_parser = subparsers.add_parser("review-grok")
-    review_parser.add_argument("project_id")
-    review_parser.add_argument("shot_id")
-    review_parser.add_argument("iteration_id")
-    review_parser.add_argument("--video-path")
-    review_parser.add_argument("--positive-prompt")
-    review_parser.add_argument("--negative-prompt", default="")
-    review_parser.add_argument("--motion-notes", default="")
-
+    parser = argparse.ArgumentParser(description="Run the Grok workflow Telegram bot.")
+    parser.add_argument("--idle-sleep", type=float, default=1.0, help="Seconds to sleep between empty polls.")
     args = parser.parse_args()
-    orchestrator = build_orchestrator(load_config())
 
-    if args.command == "import":
-        project_id = orchestrator.import_project(args.file_path)
-        print(project_id)
-        return
-    if args.command == "start":
-        orchestrator.start_project(args.project_id)
-        runner = WorkflowRunner(orchestrator)
-        runner.run_until_blocked(args.project_id)
-        return
-    if args.command == "run-bot":
-        run_bot_loop(orchestrator, args.project_id, args.idle_sleep)
-        return
-    if args.command == "review-grok":
-        review_grok(
-            orchestrator,
-            args.project_id,
-            args.shot_id,
-            args.iteration_id,
-            args.video_path,
-            args.positive_prompt,
-            args.negative_prompt,
-            args.motion_notes,
-        )
-        return
+    load_env_file()
+    project_id = os.getenv("PROJECT_ID", "").strip()
+    config = load_config()
+    errors = []
+    if not config.telegram.bot_token:
+        errors.append("Missing TELEGRAM_BOT_TOKEN. Put it in .env.local or set it before running.")
+    if not project_id:
+        errors.append("Missing PROJECT_ID. Put it in .env.local or set it before running.")
+    if errors:
+        for message in errors:
+            print(message, file=sys.stderr)
+        raise SystemExit(1)
+
+    orchestrator = build_orchestrator(config)
+    print(f"Telegram bot polling started for {project_id}. Press Ctrl+C to stop.", flush=True)
+    run_bot_loop(orchestrator, project_id, args.idle_sleep)
 
 
 def run_bot_loop(orchestrator: WorkflowOrchestrator, project_id: str, idle_sleep: float) -> None:
     runner = WorkflowRunner(orchestrator)
     command_processor = TelegramCommandProcessor(orchestrator, runner, project_id)
-    orchestrator.telegram_gateway.notify("worker_started", {"project_id": project_id})
+    orchestrator.telegram_gateway.send_text("computer is ready")
     while True:
         if not command_processor.process_next_command():
             time.sleep(idle_sleep)
-
-
-def review_grok(
-    orchestrator: WorkflowOrchestrator,
-    project_id: str,
-    shot_id: str,
-    iteration_id: str,
-    video_path: str | None,
-    positive_prompt: str | None,
-    negative_prompt: str,
-    motion_notes: str,
-) -> None:
-    storage = orchestrator.storage
-    project = storage.get_project(project_id)
-    shot = storage.get_shot(shot_id)
-    if shot.project_id != project.id:
-        raise ValueError(f"Shot {shot_id} does not belong to project {project_id}")
-
-    context = ShotContext(project=project, shot=shot)
-
-    try:
-        iteration = storage.get_iteration(iteration_id)
-        resolved_video_path = video_path or iteration.output_video_path
-    except KeyError:
-        iteration = ShotIteration(
-            id=iteration_id,
-            shot_id=shot_id,
-            iteration_number=0,
-            positive_prompt=positive_prompt or "",
-            negative_prompt=negative_prompt,
-            motion_notes=motion_notes,
-        )
-        resolved_video_path = video_path or ""
-
-    if not resolved_video_path:
-        raise ValueError(
-            "No video path available. Pass --video-path for dev review or use a real iteration with output_video_path."
-        )
-    if not iteration.positive_prompt:
-        raise ValueError(
-            "No iteration positive prompt available. Pass --positive-prompt for dev review or use a real iteration."
-        )
-
-    resolved_video_path = str(Path(resolved_video_path).expanduser().resolve())
-    if not Path(resolved_video_path).exists():
-        raise FileNotFoundError(f"Video file not found: {resolved_video_path}")
-
-    review = orchestrator.grok_adapter.review_video(context, iteration, resolved_video_path)
-    print(
-        json.dumps(
-            {
-                "project_id": project_id,
-                "shot_id": shot_id,
-                "iteration_id": iteration.id,
-                "video_path": resolved_video_path,
-                "positive_prompt": iteration.positive_prompt,
-                "negative_prompt": iteration.negative_prompt,
-                "motion_notes": iteration.motion_notes,
-                "review": asdict(review),
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
-    )
 
 
 if __name__ == "__main__":

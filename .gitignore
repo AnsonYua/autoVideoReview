@@ -7,3 +7,4 @@ data/
 .playwright-grok-profile/
 tmp/
 *.egg-info/
+.telegram-bot.pid

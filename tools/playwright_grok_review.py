@@ -56,25 +56,21 @@ def build_parser() -> argparse.ArgumentParser:
         help="Chrome DevTools endpoint used with --connect-existing.",
     )
     parser.add_argument(
-        "--base-url",
-        default="https://grok.com/",
-        help="Base Grok URL to open.",
-    )
-    parser.add_argument(
-        "--project-label",
-        default="專案",
-        help="Sidebar label to open before selecting the target project.",
-    )
-    parser.add_argument(
-        "--target-project",
-        default="porner director",
-        help="Project name to open under the sidebar section.",
+        "--first-landing",
+        required=True,
+        help="Direct Grok project/chat URL to open before interacting with the page.",
     )
     parser.add_argument(
         "--timeout-ms",
         type=int,
         default=30000,
         help="Per-step timeout in milliseconds.",
+    )
+    parser.add_argument(
+        "--result-timeout-ms",
+        type=int,
+        default=180000,
+        help="Timeout for waiting for Grok's review response.",
     )
     parser.add_argument(
         "--keep-open",
@@ -180,10 +176,112 @@ def click_target_project(page: Page, target_project: str, timeout_ms: int) -> No
     raise last_error
 
 
+def open_first_project_chat(page: Page, chat_section_label: str, timeout_ms: int) -> None:
+    page.locator('div[dir="ltr"] a[href^="/c/"]').first.wait_for(state="attached", timeout=timeout_ms)
+    result = page.evaluate(
+        """(sectionLabel) => {
+            const normalize = (value) => (value || '').replace(/\\s+/g, ' ').trim();
+            const isVisible = (el) => {
+                if (!el) {
+                    return false;
+                }
+                const style = window.getComputedStyle(el);
+                const rect = el.getBoundingClientRect();
+                return style.visibility !== 'hidden'
+                    && style.display !== 'none'
+                    && rect.width > 0
+                    && rect.height > 0;
+            };
+
+            const elements = Array.from(document.querySelectorAll('body *'));
+            const section = elements
+                .filter((el) => {
+                    const rect = el.getBoundingClientRect();
+                    return isVisible(el)
+                        && el.querySelector('a[href^="/c/"]')
+                        && rect.x > 200
+                        && rect.width < 500;
+                })
+                .map((el) => ({
+                    el,
+                    chatLinkCount: el.querySelectorAll('a[href^="/c/"]').length,
+                }))
+                .sort((left, right) => {
+                    const leftRect = left.el.getBoundingClientRect();
+                    const rightRect = right.el.getBoundingClientRect();
+                    return right.chatLinkCount - left.chatLinkCount
+                        || (leftRect.width * leftRect.height) - (rightRect.width * rightRect.height);
+                })[0]?.el;
+
+            if (!section) {
+                return { clicked: false, reason: 'Unable to find the project chat list' };
+            }
+
+            const projectMatch = window.location.pathname.match(/^\\/project\\/([^/?#]+)/);
+            if (!projectMatch) {
+                return { clicked: false, reason: 'The current page is not a Grok project page' };
+            }
+            const projectId = projectMatch[1];
+            const anchors = Array.from(
+                section.querySelectorAll('a[href^="/c/"]'),
+            )
+                .map((anchor) => {
+                    const anchorRect = anchor.getBoundingClientRect();
+                    const row = Array.from(section.querySelectorAll('[class*="cursor-pointer"]'))
+                        .find((candidate) => {
+                            const rect = candidate.getBoundingClientRect();
+                            return Math.abs(rect.y - anchorRect.y) < 2
+                                && Math.abs(rect.height - anchorRect.height) < 2;
+                        }) || anchor.parentElement || anchor;
+                    const rowText = normalize(row.innerText || row.textContent);
+                    const href = anchor.getAttribute('href') || '';
+                    const chatMatch = href.match(/^\\/c\\/([^/?#]+)/);
+                    return {
+                        anchor,
+                        chatId: chatMatch ? chatMatch[1] : '',
+                        text: rowText,
+                    };
+                })
+                .filter((candidate) => {
+                    const text = candidate.text;
+                    const anchor = candidate.anchor;
+                    return isVisible(anchor)
+                        && candidate.chatId
+                        && text
+                        && !text.includes(sectionLabel)
+                        && !text.includes('附加至專案')
+                        && !text.includes('Attach to project');
+                })
+                .sort((left, right) => (
+                    left.anchor.getBoundingClientRect().y - right.anchor.getBoundingClientRect().y
+                ));
+
+            const nonEmptyChats = anchors.filter(
+                (candidate) => !/^New conversation\\b/i.test(candidate.text) && !/^新增對話\\b/.test(candidate.text),
+            );
+            const selected = (nonEmptyChats[0] || anchors[0]);
+            if (selected) {
+                const target = `/project/${projectId}?chat=${selected.chatId}`;
+                window.location.assign(target);
+                return { clicked: true, text: selected.text, href: target };
+            }
+
+            return { clicked: false, reason: 'No existing project chat was found in the chat section' };
+        }""",
+        chat_section_label,
+    )
+    if not result.get("clicked"):
+        raise TimeoutError(str(result.get("reason", "Unable to open the first project chat")))
+    page.wait_for_load_state("domcontentloaded", timeout=timeout_ms)
+    page.wait_for_timeout(1000)
+
+
 def upload_video(page: Page, video_path: str, timeout_ms: int) -> None:
     path = str(Path(video_path).expanduser().resolve())
     if not Path(path).exists():
         raise FileNotFoundError(f"Video file not found: {path}")
+    file_name = Path(path).name
+    existing_file_name_count = page.locator(f"text={file_name}").count()
 
     input_candidates = [
         page.locator('input[type="file"]'),
@@ -192,7 +290,9 @@ def upload_video(page: Page, video_path: str, timeout_ms: int) -> None:
     for locator in input_candidates:
         try:
             if locator.first.count() > 0:
+                locator.first.set_input_files([], timeout=timeout_ms)
                 locator.first.set_input_files(path, timeout=timeout_ms)
+                wait_for_video_upload_started(page, file_name, existing_file_name_count, timeout_ms)
                 return
         except Exception:  # noqa: BLE001
             continue
@@ -212,6 +312,7 @@ def upload_video(page: Page, video_path: str, timeout_ms: int) -> None:
                     locator.first.click(timeout=timeout_ms)
                 chooser = chooser_info.value
                 chooser.set_files(path)
+                wait_for_video_upload_started(page, file_name, existing_file_name_count, timeout_ms)
                 return
         except Exception as exc:  # noqa: BLE001
             last_error = exc
@@ -220,6 +321,22 @@ def upload_video(page: Page, video_path: str, timeout_ms: int) -> None:
     if last_error is None:
         raise TimeoutError("Unable to find a file upload control in the Grok project page")
     raise last_error
+
+
+def wait_for_video_upload_started(page: Page, file_name: str, existing_file_name_count: int, timeout_ms: int) -> None:
+    try:
+        page.wait_for_function(
+            """([fileName, previousCount]) => {
+                const inputs = Array.from(document.querySelectorAll('input[type="file"]'));
+                const fileInputUpdated = inputs.some((input) => input.files && input.files.length > 0);
+                const currentCount = (document.body.innerText || '').split(fileName).length - 1;
+                return fileInputUpdated || currentCount > previousCount;
+            }""",
+            arg=[file_name, existing_file_name_count],
+            timeout=min(timeout_ms, 10000),
+        )
+    except Exception:  # noqa: BLE001
+        page.wait_for_timeout(1000)
 
 
 def build_review_prompt(positive_prompt: str, negative_prompt: str) -> str:
@@ -285,32 +402,64 @@ def submit_review_prompt(page: Page, timeout_ms: int) -> None:
     submit_button.click(timeout=timeout_ms)
 
 
-def read_review_result(page: Page, timeout_ms: int) -> dict[str, str]:
+def capture_response_baseline(page: Page) -> dict[str, object]:
     assistant_messages = page.locator('[data-testid="assistant-message"]')
-    initial_count = assistant_messages.count()
-    wait_for_response_complete(page, timeout_ms, initial_count)
+    count = assistant_messages.count()
+    last_text = ""
+    if count > 0:
+        try:
+            last_text = assistant_messages.last.inner_text(timeout=1000).strip()
+        except Exception:  # noqa: BLE001
+            last_text = ""
+    return {"count": count, "last_text": last_text}
+
+
+def read_review_result(page: Page, timeout_ms: int, baseline: dict[str, object] | None = None) -> dict[str, str]:
+    assistant_messages = page.locator('[data-testid="assistant-message"]')
+    if baseline is None:
+        baseline = capture_response_baseline(page)
+    wait_for_response_complete(page, timeout_ms, baseline)
     page.wait_for_timeout(1000)
     message_text = assistant_messages.last.inner_text(timeout=timeout_ms).strip()
     return normalize_result_text(message_text)
 
 
-def wait_for_response_complete(page: Page, timeout_ms: int, initial_count: int) -> None:
-    page.wait_for_function(
-        """(previousCount) => {
-            const messages = document.querySelectorAll('[data-testid="assistant-message"]');
-            if (messages.length <= previousCount) {
-                return false;
-            }
-            const last = messages[messages.length - 1];
-            if (!last) {
-                return false;
-            }
-            const text = (last.textContent || '').trim();
-            return text.length > 0 && text.includes('{') && text.includes('}');
-        }""",
-        arg=initial_count,
-        timeout=timeout_ms,
-    )
+def wait_for_response_complete(page: Page, timeout_ms: int, baseline: dict[str, object]) -> None:
+    previous_count = int(baseline.get("count", 0))
+    previous_text = str(baseline.get("last_text", ""))
+    try:
+        page.wait_for_function(
+            """([previousCount, previousText]) => {
+                const messages = document.querySelectorAll('[data-testid="assistant-message"]');
+                if (!messages.length) {
+                    return false;
+                }
+                const last = messages[messages.length - 1];
+                const text = (last.textContent || '').trim();
+                if (!text || text === previousText) {
+                    return false;
+                }
+                const hasJsonShape = text.includes('{') && text.includes('}');
+                const hasNewMessage = messages.length > previousCount;
+                return hasJsonShape && (hasNewMessage || text !== previousText);
+            }""",
+            arg=[previous_count, previous_text],
+            timeout=timeout_ms,
+        )
+    except TimeoutError as exc:
+        best_text = ""
+        try:
+            assistant_messages = page.locator('[data-testid="assistant-message"]')
+            if assistant_messages.count() > 0:
+                best_text = assistant_messages.last.inner_text(timeout=1000).strip()
+        except Exception:  # noqa: BLE001
+            best_text = ""
+        if best_text and best_text != previous_text:
+            return
+        raise TimeoutError(
+            f"Timed out after {timeout_ms}ms waiting for a new Grok review response. "
+            "Try increasing --result-timeout-ms if Grok is still thinking."
+        ) from exc
 
 
 def normalize_result_text(message_text: str) -> dict[str, str]:
@@ -353,18 +502,56 @@ def parse_json_from_text(message_text: str) -> dict[str, object] | None:
     return None
 
 
-def open_target(page: Page, base_url: str, project_label: str, target_project: str, timeout_ms: int) -> None:
+def open_target(
+    page: Page,
+    first_landing: str,
+    timeout_ms: int,
+) -> None:
     page.set_default_timeout(timeout_ms)
-    page.goto(base_url, wait_until="domcontentloaded", timeout=timeout_ms)
+    page.goto(first_landing, wait_until="domcontentloaded", timeout=timeout_ms)
+    wait_for_chat_history_loaded(page, timeout_ms)
+
+
+def wait_for_chat_history_loaded(page: Page, timeout_ms: int) -> None:
     try:
-        page.get_by_text(project_label, exact=True).first.wait_for(state="visible", timeout=5000)
+        page.wait_for_load_state("networkidle", timeout=min(timeout_ms, 10000))
     except Exception:  # noqa: BLE001
-        try:
-            page.get_by_placeholder("Ask anything").first.wait_for(state="visible", timeout=5000)
-        except Exception:  # noqa: BLE001
-            page.wait_for_timeout(3000)
-    click_project_label_if_needed(page, project_label, target_project, timeout_ms)
-    click_target_project(page, target_project, timeout_ms)
+        pass
+    page.locator('div.tiptap.ProseMirror[contenteditable="true"]').first.wait_for(
+        state="visible",
+        timeout=timeout_ms,
+    )
+    page.locator('button[data-testid="chat-submit"]').first.wait_for(state="attached", timeout=timeout_ms)
+    page.wait_for_function(
+        """() => {
+            const editor = document.querySelector('div.tiptap.ProseMirror[contenteditable="true"]');
+            const submit = document.querySelector('button[data-testid="chat-submit"]');
+            if (!editor || !submit) {
+                return false;
+            }
+            const messages = document.querySelectorAll(
+                '[data-testid="user-message"], [data-testid="assistant-message"]',
+            );
+            const bodyText = document.body.innerText || '';
+            const hasEmptyProjectState = bodyText.includes('Start a conversation')
+                || bodyText.includes('在此專案中開始對話');
+            return document.readyState === 'complete' && (messages.length > 0 || hasEmptyProjectState);
+        }""",
+        timeout=timeout_ms,
+    )
+    page.wait_for_function(
+        """() => new Promise((resolve) => {
+            const countMessages = () => document.querySelectorAll(
+                '[data-testid="user-message"], [data-testid="assistant-message"]',
+            ).length;
+            const initialCount = countMessages();
+            const initialHeight = document.body.scrollHeight;
+            window.setTimeout(() => {
+                resolve(initialCount === countMessages() && initialHeight === document.body.scrollHeight);
+            }, 750);
+        })""",
+        timeout=timeout_ms,
+    )
 
 
 def get_existing_page(browser: Browser) -> tuple[BrowserContext, Page]:
@@ -402,7 +589,11 @@ def main() -> int:
                     return 1
                 browser = playwright.chromium.connect_over_cdp(args.cdp_url)
                 context, page = get_existing_page(browser)
-                open_target(page, args.base_url, args.project_label, args.target_project, args.timeout_ms)
+                open_target(
+                    page,
+                    args.first_landing,
+                    args.timeout_ms,
+                )
                 if args.video_path:
                     upload_video(page, args.video_path, args.timeout_ms)
                 if args.send_review_prompt:
@@ -411,10 +602,11 @@ def main() -> int:
                         build_review_prompt(args.positive_prompt, args.negative_prompt),
                         args.timeout_ms,
                     )
+                response_baseline = capture_response_baseline(page) if args.read_review_result else None
                 if args.submit_review_prompt:
                     submit_review_prompt(page, args.timeout_ms)
                 if args.read_review_result:
-                    emit(read_review_result(page, args.timeout_ms))
+                    emit(read_review_result(page, args.result_timeout_ms, response_baseline))
                     return 0
                 if args.keep_open:
                     input("Project opened in existing Chrome. Press Enter to detach...")
@@ -430,7 +622,11 @@ def main() -> int:
             )
             try:
                 page = context.pages[0] if context.pages else context.new_page()
-                open_target(page, args.base_url, args.project_label, args.target_project, args.timeout_ms)
+                open_target(
+                    page,
+                    args.first_landing,
+                    args.timeout_ms,
+                )
                 if args.video_path:
                     upload_video(page, args.video_path, args.timeout_ms)
                 if args.send_review_prompt:
@@ -439,10 +635,11 @@ def main() -> int:
                         build_review_prompt(args.positive_prompt, args.negative_prompt),
                         args.timeout_ms,
                     )
+                response_baseline = capture_response_baseline(page) if args.read_review_result else None
                 if args.submit_review_prompt:
                     submit_review_prompt(page, args.timeout_ms)
                 if args.read_review_result:
-                    emit(read_review_result(page, args.timeout_ms))
+                    emit(read_review_result(page, args.result_timeout_ms, response_baseline))
                     return 0
 
                 if args.keep_open:

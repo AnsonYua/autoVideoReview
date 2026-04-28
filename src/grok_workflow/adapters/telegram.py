@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -18,6 +20,9 @@ class TelegramBotGateway(TelegramGateway):
         message = json.dumps({"event_type": event_type, "payload": payload}, ensure_ascii=False)
         self._send_message(message)
 
+    def send_text(self, text: str, reply_markup: dict[str, object] | None = None) -> None:
+        self._send_message(text, reply_markup)
+
     def request_approval(self, shot_id: str, iteration_id: str, preview_path: str) -> None:
         message = (
             f"Shot {shot_id} iteration {iteration_id} passed Grok review.\n"
@@ -32,14 +37,32 @@ class TelegramBotGateway(TelegramGateway):
             self._last_update_id = max(self._last_update_id, int(update["update_id"]) + 1)
             message = update.get("message", {})
             text = message.get("text", "").strip()
-            if not text.startswith("/"):
+            if not text:
                 continue
+            sender = message.get("from", {})
+            sender_name = sender.get("username") or sender.get("first_name") or sender.get("id", "unknown")
+            print(f"Telegram message from {sender_name}: {text}", flush=True)
             return self._parse_command(text)
         return None
 
     def _parse_command(self, text: str) -> ControlEvent:
         parts = text.split()
         command = parts[0].lower()
+        if not command.startswith("/"):
+            normalized_text = text.lower()
+            button_commands = {
+                "menu": "menu",
+                "show menu": "menu",
+                "help": "menu",
+                "check status": "status",
+                "start project": "start_project",
+                "pause project": "pause",
+                "resume project": "resume",
+            }
+            if normalized_text in button_commands:
+                return ControlEvent(event_type=button_commands[normalized_text], payload={"raw_text": text})
+            return ControlEvent(event_type="message", payload={"raw_text": text})
+        command = command.split("@", 1)[0]
         if command in {"/approve", "/reject"} and len(parts) >= 3:
             return ControlEvent(
                 event_type=command[1:],
@@ -48,10 +71,13 @@ class TelegramBotGateway(TelegramGateway):
             )
         return ControlEvent(event_type=command[1:], payload={"raw_text": text})
 
-    def _send_message(self, text: str) -> None:
+    def _send_message(self, text: str, reply_markup: dict[str, object] | None = None) -> None:
         if not self.config.bot_token or not self.config.chat_id:
             return
-        payload = urllib.parse.urlencode({"chat_id": self.config.chat_id, "text": text}).encode("utf-8")
+        payload_data: dict[str, object] = {"chat_id": self.config.chat_id, "text": text}
+        if reply_markup is not None:
+            payload_data["reply_markup"] = json.dumps(reply_markup, ensure_ascii=False)
+        payload = urllib.parse.urlencode(payload_data).encode("utf-8")
         request = urllib.request.Request(self._api_url("sendMessage"), data=payload, method="POST")
         with urllib.request.urlopen(request):
             return
@@ -62,8 +88,14 @@ class TelegramBotGateway(TelegramGateway):
         query = urllib.parse.urlencode(
             {"timeout": self.config.poll_timeout_seconds, "offset": self._last_update_id}
         )
-        with urllib.request.urlopen(f"{self._api_url('getUpdates')}?{query}") as response:
-            body = json.loads(response.read().decode("utf-8"))
+        try:
+            with urllib.request.urlopen(f"{self._api_url('getUpdates')}?{query}") as response:
+                body = json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            if exc.code == 409:
+                time.sleep(5)
+                return []
+            raise
         return list(body.get("result", []))
 
     def _api_url(self, method: str) -> str:

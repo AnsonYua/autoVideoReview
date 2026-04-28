@@ -23,8 +23,12 @@ class TelegramCommandProcessor:
         raw_text = str(event.payload.get("raw_text", "")).strip()
         parts = raw_text.split()
 
+        if event.event_type in {"menu", "help"}:
+            self._send_menu()
+            return True
+
         if event.event_type == "start_project":
-            if len(parts) > 1 and parts[1] == self.project_id:
+            if self._targets_current_project(parts):
                 self.orchestrator.start_project(self.project_id)
                 self.runner.start(self.project_id)
             else:
@@ -32,14 +36,14 @@ class TelegramCommandProcessor:
             return True
 
         if event.event_type == "pause":
-            if len(parts) > 1 and parts[1] == self.project_id:
+            if self._targets_current_project(parts):
                 self.runner.request_pause(self.project_id)
             else:
                 self._notify_project_mismatch()
             return True
 
         if event.event_type == "resume":
-            if len(parts) > 1 and parts[1] == self.project_id:
+            if self._targets_current_project(parts):
                 self.orchestrator.resume_project(self.project_id)
                 self.runner.start(self.project_id)
             else:
@@ -47,7 +51,7 @@ class TelegramCommandProcessor:
             return True
 
         if event.event_type == "status":
-            if len(parts) > 1 and parts[1] == self.project_id:
+            if self._targets_current_project(parts):
                 payload = self.orchestrator.get_project_status(self.project_id)
                 payload["runner_state"] = self.runner.get_last_result().state
                 self.orchestrator.telegram_gateway.notify("project_status", payload)
@@ -79,3 +83,29 @@ class TelegramCommandProcessor:
             "project_error",
             {"error": "project_id_mismatch", "project_id": self.project_id},
         )
+
+    def _targets_current_project(self, parts: list[str]) -> bool:
+        return len(parts) == 1 or (len(parts) > 1 and parts[1] == self.project_id)
+
+    def _send_menu(self) -> None:
+        message = (
+            "Menu\n"
+            f"Project: {self.project_id}\n\n"
+            "check status - show project status\n"
+            "start project - start or continue the workflow\n"
+            "pause project - pause the workflow\n"
+            "resume project - resume the workflow\n"
+            "/approve SHOT_ID ITERATION_ID - approve a reviewed shot\n"
+            "/reject SHOT_ID ITERATION_ID - reject a reviewed shot\n"
+            "/menu - show this menu"
+        )
+        reply_markup = {
+            "keyboard": [
+                [{"text": "check status"}],
+                [{"text": "start project"}, {"text": "pause project"}],
+                [{"text": "resume project"}, {"text": "show menu"}],
+            ],
+            "resize_keyboard": True,
+            "one_time_keyboard": False,
+        }
+        self.orchestrator.telegram_gateway.send_text(message, reply_markup)
