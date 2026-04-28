@@ -1,0 +1,145 @@
+{
+  "projects": [
+    {
+      "project": {
+        "id": "project_c022d8962864",
+        "title": "1 Minute Premium Adult Scene - Living Room to Bedroom",
+        "source_file": "/Users/hello/Desktop/grokWorkflow/raw/001.json",
+        "status": "pending",
+        "created_at": "2026-04-27T09:39:50.441661+00:00"
+      },
+      "shots": [
+        {
+          "id": "shot_44c99734d38f",
+          "project_id": "project_c022d8962864",
+          "shot_number": 1,
+          "script_text": "Living Room opening - passionate kissing on sofa",
+          "positive_prompt": "Highly detailed realistic photo of young attractive Asian couple in modern luxury living room at night, warm soft lamp lighting, man sitting on sofa fully clothed in olive green shirt and jeans, beautiful woman with long black hair straddling his lap in tight olive-green dress, passionate deep French kiss, hands on each other's back and thighs, sensual grinding, cinematic atmosphere, sharp focus, 8k",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "./data/ref1.jpg",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_6ee21c833083",
+          "project_id": "project_c022d8962864",
+          "shot_number": 2,
+          "script_text": "Undressing + breast groping on sofa",
+          "positive_prompt": "Same couple on sofa, man slowly pulling down woman's dress straps with both hands, fabric slipping off naturally due to gravity revealing perfect round breasts, hands cupping and gently squeezing breasts, woman eyes half-closed in pleasure, heavy breathing, realistic fabric physics and skin interaction, smooth motion from previous clip, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_cfa1647d41bc",
+          "project_id": "project_c022d8962864",
+          "shot_number": 3,
+          "script_text": "Neck kissing + intense breast play",
+          "positive_prompt": "Same couple on sofa, woman fully topless with dress at waist, man passionately kissing and sucking her neck with wet lips and tongue, hands kneading and squeezing breasts with natural finger movement, woman head tilted back moaning, body arching and quivering, natural breast jiggle, smooth motion from previous clip, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_ef46c5cdec2f",
+          "project_id": "project_c022d8962864",
+          "shot_number": 4,
+          "script_text": "Princess carry + walking into bedroom",
+          "positive_prompt": "Same couple in living room, woman topless dress at waist, man slowly lifting her into princess carry from neck kiss position, legs wrapping around waist, deep kiss while carrying, taking several slow realistic steps through doorway into bedroom, natural bouncing and swaying, camera smoothly tracking, white silk bed visible, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_1b2c5ad05ebe",
+          "project_id": "project_c022d8962864",
+          "shot_number": 5,
+          "script_text": "Laying down on bed + full undressing",
+          "positive_prompt": "Same couple at edge of white silk bed, man gently lowering woman from princess carry onto bed, legs slowly unwrapping, deep kiss throughout, slowly sliding dress completely off hips and legs, hands exploring breasts and thighs, soft sinking into mattress, hair spreading on pillow, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_b91e53236960",
+          "project_id": "project_c022d8962864",
+          "shot_number": 6,
+          "script_text": "Neck kiss + full body foreplay on bed",
+          "positive_prompt": "Same couple on bed, woman fully naked, man kissing and sucking her neck and breasts, hands sensually exploring body, woman moaning and arching, hands on his back, realistic sweat and skin texture, natural breast physics, smooth motion from previous clip, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_85f7bb800f44",
+          "project_id": "project_c022d8962864",
+          "shot_number": 7,
+          "script_text": "Missionary position + cock rubbing",
+          "positive_prompt": "Same couple on bed, woman on back legs spread, man on top in missionary, deep kissing while hard cock rubbing and grinding against wet pussy, her legs wrapping around his waist, intense eye contact, heavy breathing, smooth motion from previous clip, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_dd4798d384cd",
+          "project_id": "project_c022d8962864",
+          "shot_number": 8,
+          "script_text": "Missionary slow penetration",
+          "positive_prompt": "Same couple in missionary, man slowly pushing hard cock into her wet pussy, deep passionate kissing, her legs tightly wrapped around him, pleasure faces, slow thrusting, detailed intimate contact, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_888b92789a0f",
+          "project_id": "project_c022d8962864",
+          "shot_number": 9,
+          "script_text": "Missionary faster thrusting",
+          "positive_prompt": "Same couple in missionary, man thrusting deeper and faster, woman moaning loudly, breasts bouncing naturally, hands gripping his back, intense pleasure expressions, sweat on bodies, smooth fast motion, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        },
+        {
+          "id": "shot_4ae9298f5c06",
+          "project_id": "project_c022d8962864",
+          "shot_number": 10,
+          "script_text": "Transition to Doggy style",
+          "positive_prompt": "Same couple on bed, man flipping woman onto all fours into doggy style, gripping her waist, hard cock rubbing against her from behind, messy hair, pleasure expressions, smooth position change, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "reference_image_path": "",
+          "depends_on_previous_shot": true,
+          "status": "pending",
+          "approved_iteration_id": null
+        }
+      ],
+      "iterations": [],
+      "approvals": [],
+      "events": [
+        {
+          "event_type": "project_imported",
+          "payload": "{\"source_file\": \"/Users/hello/Desktop/grokWorkflow/raw/001.json\"}",
+          "shot_id": null,
+          "iteration_id": null
+        }
+      ]
+    }
+  ]
+}
