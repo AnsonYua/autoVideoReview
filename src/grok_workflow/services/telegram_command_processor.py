@@ -100,12 +100,16 @@ class TelegramCommandProcessor:
             "/menu - show this menu"
         )
         reply_markup = {
-            "keyboard": [
-                [{"text": "check status"}],
-                [{"text": "start project"}, {"text": "pause project"}],
-                [{"text": "resume project"}, {"text": "show menu"}],
-            ],
-            "resize_keyboard": True,
-            "one_time_keyboard": False,
+            "inline_keyboard": [
+                [{"text": "check status", "callback_data": "check status"}],
+                [
+                    {"text": "start project", "callback_data": "start project"},
+                    {"text": "pause project", "callback_data": "pause project"},
+                ],
+                [
+                    {"text": "resume project", "callback_data": "resume project"},
+                    {"text": "show menu", "callback_data": "show menu"},
+                ],
+            ]
         }
         self.orchestrator.telegram_gateway.send_text(message, reply_markup)

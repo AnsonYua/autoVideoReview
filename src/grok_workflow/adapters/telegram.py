@@ -35,6 +35,19 @@ class TelegramBotGateway(TelegramGateway):
         updates = self._get_updates()
         for update in updates:
             self._last_update_id = max(self._last_update_id, int(update["update_id"]) + 1)
+            callback_query = update.get("callback_query")
+            if callback_query:
+                callback_id = str(callback_query.get("id", ""))
+                data = str(callback_query.get("data", "")).strip()
+                sender = callback_query.get("from", {})
+                sender_name = sender.get("username") or sender.get("first_name") or sender.get("id", "unknown")
+                print(f"Telegram button from {sender_name}: {data}", flush=True)
+                if callback_id:
+                    self._answer_callback_query(callback_id)
+                if data:
+                    return self._parse_command(data)
+                continue
+
             message = update.get("message", {})
             text = message.get("text", "").strip()
             if not text:
@@ -79,6 +92,14 @@ class TelegramBotGateway(TelegramGateway):
             payload_data["reply_markup"] = json.dumps(reply_markup, ensure_ascii=False)
         payload = urllib.parse.urlencode(payload_data).encode("utf-8")
         request = urllib.request.Request(self._api_url("sendMessage"), data=payload, method="POST")
+        with urllib.request.urlopen(request):
+            return
+
+    def _answer_callback_query(self, callback_query_id: str) -> None:
+        if not self.config.bot_token:
+            return
+        payload = urllib.parse.urlencode({"callback_query_id": callback_query_id}).encode("utf-8")
+        request = urllib.request.Request(self._api_url("answerCallbackQuery"), data=payload, method="POST")
         with urllib.request.urlopen(request):
             return
 
