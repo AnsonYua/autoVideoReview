@@ -5,92 +5,20 @@
         "id": "project_c022d8962864",
         "title": "1 Minute Premium Adult Scene - Living Room to Bedroom",
         "source_file": "/Users/hello/Desktop/grokWorkflow/raw/001.json",
-        "status": "pending",
+        "status": "running",
         "created_at": "2026-04-27T09:39:50.441661+00:00"
       },
       "shots": [
-        {
-          "id": "shot_44c99734d38f",
-          "project_id": "project_c022d8962864",
-          "shot_number": 1,
-          "script_text": "Living Room opening - passionate kissing on sofa",
-          "positive_prompt": "Highly detailed realistic photo of young attractive Asian couple in modern luxury living room at night, warm soft lamp lighting, man sitting on sofa fully clothed in olive green shirt and jeans, beautiful woman with long black hair straddling his lap in tight olive-green dress, passionate deep French kiss, hands on each other's back and thighs, sensual grinding, cinematic atmosphere, sharp focus, 8k",
-          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
-          "reference_image_path": "./data/ref1.jpg",
-          "depends_on_previous_shot": true,
-          "status": "pending",
-          "approved_iteration_id": null
-        },
-        {
-          "id": "shot_6ee21c833083",
-          "project_id": "project_c022d8962864",
-          "shot_number": 2,
-          "script_text": "Undressing + breast groping on sofa",
-          "positive_prompt": "Same couple on sofa, man slowly pulling down woman's dress straps with both hands, fabric slipping off naturally due to gravity revealing perfect round breasts, hands cupping and gently squeezing breasts, woman eyes half-closed in pleasure, heavy breathing, realistic fabric physics and skin interaction, smooth motion from previous clip, 8k cinematic",
-          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
-          "reference_image_path": "",
-          "depends_on_previous_shot": true,
-          "status": "pending",
-          "approved_iteration_id": null
-        },
-        {
-          "id": "shot_cfa1647d41bc",
-          "project_id": "project_c022d8962864",
-          "shot_number": 3,
-          "script_text": "Neck kissing + intense breast play",
-          "positive_prompt": "Same couple on sofa, woman fully topless with dress at waist, man passionately kissing and sucking her neck with wet lips and tongue, hands kneading and squeezing breasts with natural finger movement, woman head tilted back moaning, body arching and quivering, natural breast jiggle, smooth motion from previous clip, 8k cinematic",
-          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
-          "reference_image_path": "",
-          "depends_on_previous_shot": true,
-          "status": "pending",
-          "approved_iteration_id": null
-        },
-        {
-          "id": "shot_ef46c5cdec2f",
-          "project_id": "project_c022d8962864",
-          "shot_number": 4,
-          "script_text": "Princess carry + walking into bedroom",
-          "positive_prompt": "Same couple in living room, woman topless dress at waist, man slowly lifting her into princess carry from neck kiss position, legs wrapping around waist, deep kiss while carrying, taking several slow realistic steps through doorway into bedroom, natural bouncing and swaying, camera smoothly tracking, white silk bed visible, 8k cinematic",
-          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
-          "reference_image_path": "",
-          "depends_on_previous_shot": true,
-          "status": "pending",
-          "approved_iteration_id": null
-        },
-        {
-          "id": "shot_1b2c5ad05ebe",
-          "project_id": "project_c022d8962864",
-          "shot_number": 5,
-          "script_text": "Laying down on bed + full undressing",
-          "positive_prompt": "Same couple at edge of white silk bed, man gently lowering woman from princess carry onto bed, legs slowly unwrapping, deep kiss throughout, slowly sliding dress completely off hips and legs, hands exploring breasts and thighs, soft sinking into mattress, hair spreading on pillow, 8k cinematic",
-          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
-          "reference_image_path": "",
-          "depends_on_previous_shot": true,
-          "status": "pending",
-          "approved_iteration_id": null
-        },
-        {
-          "id": "shot_b91e53236960",
-          "project_id": "project_c022d8962864",
-          "shot_number": 6,
-          "script_text": "Neck kiss + full body foreplay on bed",
-          "positive_prompt": "Same couple on bed, woman fully naked, man kissing and sucking her neck and breasts, hands sensually exploring body, woman moaning and arching, hands on his back, realistic sweat and skin texture, natural breast physics, smooth motion from previous clip, 8k cinematic",
-          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
-          "reference_image_path": "",
-          "depends_on_previous_shot": true,
-          "status": "pending",
-          "approved_iteration_id": null
-        },
         {
           "id": "shot_85f7bb800f44",
           "project_id": "project_c022d8962864",
           "shot_number": 7,
           "script_text": "Missionary position + cock rubbing",
-          "positive_prompt": "Same couple on bed, woman on back legs spread, man on top in missionary, deep kissing while hard cock rubbing and grinding against wet pussy, her legs wrapping around his waist, intense eye contact, heavy breathing, smooth motion from previous clip, 8k cinematic",
-          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
-          "reference_image_path": "",
-          "depends_on_previous_shot": true,
-          "status": "pending",
+          "positive_prompt": "同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭自然進行**詳細個人成人片除衣過程**：男人先慢慢拉開褲子拉鍊，褲子自然滑落到腳踝並踢開，露出緊繃的內褲，接著用手緩慢把內褲往下拉脫掉（個人成人片經典風格），**硬挺粗大的勃起肉棒立刻從內褲裡用力彈跳出來，前後自然晃動幾下**，男人隨後微微壓低腰部，用手輕扶肉棒根部，**讓粗大龜頭從上方慢慢落下，緊貼在女人濕潤光亮的小穴上方**，肉棒整根躺在陰唇表面，接著開始溫柔緩慢的外部來回摩擦、研磨（龜頭輕壓陰唇之間上下滑動，純外部磨穴，絕無任何插入），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，一手輕扶肉棒調整角度，溫柔緩慢有節奏的磨穴動作（讓女人感覺很舒服、很享受的表情），大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感",
+          "negative_prompt": "不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然出現、肉棒跳出不自然、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、男人沒看小穴、女人痛苦表情、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作、內褲突然消失、除內褲過程不明顯、肉棒沒有彈出晃動、直接跳到貼穴、肉棒瞬間貼上",
+          "reference_image_path": "./data/20260427_023156_00001_last_frame.png",
+          "depends_on_previous_shot": false,
+          "status": "sent_to_comfy",
           "approved_iteration_id": null
         },
         {
@@ -130,7 +58,143 @@
           "approved_iteration_id": null
         }
       ],
-      "iterations": [],
+      "iterations": [
+        {
+          "id": "iter_d08b1eae4fb2",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 1,
+          "positive_prompt": "Same couple on bed, woman on back legs spread, man on top in missionary, deep kissing while hard cock rubbing and grinding against wet pussy, her legs wrapping around his waist, intense eye contact, heavy breathing, smooth motion from previous clip, 8k cinematic",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"Same couple on bed, woman on back legs spread, man on top in missionary, deep kissing while hard cock rubbing and grinding against wet pussy, her legs wrapping around his waist, intense eye contact, heavy breathing, smooth motion from previous clip, 8k cinematic\", \"negative_prompt\": \"different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"b7514930-3e9b-4c7f-9d00-4c8688b87eb3\"}",
+          "output_video_path": "outputs\\Wan2.2_Remix_V3\\%date:yyyyMMdd_hhmmss%_00001.mp4",
+          "output_preview_path": "",
+          "grok_review_raw": "",
+          "grok_review_status": "",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-28T17:25:46.751981+00:00"
+        },
+        {
+          "id": "iter_e846701df9cb",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 2,
+          "positive_prompt": "Same consistent beautiful Asian couple in luxurious hotel bedroom, woman lying on her back on white sheets with legs spread wide and wrapped tightly around man's waist, man completely naked from the waist down (pants fully removed and thrown aside, no pants visible anywhere), hard thick erect cock visibly sliding and grinding between her wet glistening pussy lips (detailed labia, juices dripping), passionate deep French kissing with tongues, intense eye contact, heavy breathing and moaning, her hands gripping his bare ass and back pulling him closer, his hands firmly holding her thighs and ass, smooth continuous hip thrusting and grinding motion building sexual tension, realistic skin texture, sweat, fabric of her olive dress pulled up to waist, natural body physics, 8k cinematic, warm soft bedroom lighting, high detail, sensual atmosphere, continuation from previous kissing scene",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics, man still wearing pants, pants on, clothed lower body, pants visible, hidden genitals, soft cock, low detail pussy, inconsistent body proportions, floating limbs, dark lighting, overexposed",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"Same consistent beautiful Asian couple in luxurious hotel bedroom, woman lying on her back on white sheets with legs spread wide and wrapped tightly around man's waist, man completely naked from the waist down (pants fully removed and thrown aside, no pants visible anywhere), hard thick erect cock visibly sliding and grinding between her wet glistening pussy lips (detailed labia, juices dripping), passionate deep French kissing with tongues, intense eye contact, heavy breathing and moaning, her hands gripping his bare ass and back pulling him closer, his hands firmly holding her thighs and ass, smooth continuous hip thrusting and grinding motion building sexual tension, realistic skin texture, sweat, fabric of her olive dress pulled up to waist, natural body physics, 8k cinematic, warm soft bedroom lighting, high detail, sensual atmosphere, continuation from previous kissing scene\", \"negative_prompt\": \"different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, bad cock physics, man still wearing pants, pants on, clothed lower body, pants visible, hidden genitals, soft cock, low detail pussy, inconsistent body proportions, floating limbs, dark lighting, overexposed\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"4c750539-3da6-474c-8fb4-9af5e00adc6f\"}",
+          "output_video_path": "",
+          "output_preview_path": "",
+          "grok_review_raw": "",
+          "grok_review_status": "",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-28T17:43:49.355976+00:00"
+        },
+        {
+          "id": "iter_54c156588eae",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 3,
+          "positive_prompt": "Same consistent beautiful Asian couple in luxurious hotel bedroom, woman lying on her back on white sheets, olive dress completely pulled up and removed from upper body (topless, breasts fully exposed, dress bunched only at waist), legs spread wide and wrapped tightly around man's waist, man completely naked from the waist down from the very first frame (pants already fully removed and out of sight, no pants visible at any moment), very hard thick erect cock visibly sliding, rubbing and grinding on the outside of her wet glistening pussy (detailed labia, no insertion, cock head clearly pressing and sliding between pussy lips with dripping juices and precum, external grinding only), passionate deep French kissing with tongues, intense eye contact, heavy breathing and moaning, her hands gripping his bare ass and back pulling him closer, his hands firmly holding her thighs and ass spreading her wider, smooth continuous external hip thrusting and cock grinding motion against pussy (NO penetration at all), realistic skin texture, sweat, glistening juices, natural body physics, 8k cinematic, warm soft bedroom lighting, high detail, sensual atmosphere, seamless continuation from previous kissing scene",
+          "negative_prompt": "different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, actual fucking, cock inside pussy, insertion, hidden genitals, soft cock, low detail pussy, inconsistent body proportions, floating limbs, dark lighting, overexposed, man still wearing pants, pants visible, woman dress covering breasts, dress not pulled up, no cock visible, cock not touching pussy, cock floating away from pussy",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"Same consistent beautiful Asian couple in luxurious hotel bedroom, woman lying on her back on white sheets, olive dress completely pulled up and removed from upper body (topless, breasts fully exposed, dress bunched only at waist), legs spread wide and wrapped tightly around man's waist, man completely naked from the waist down from the very first frame (pants already fully removed and out of sight, no pants visible at any moment), very hard thick erect cock visibly sliding, rubbing and grinding on the outside of her wet glistening pussy (detailed labia, no insertion, cock head clearly pressing and sliding between pussy lips with dripping juices and precum, external grinding only), passionate deep French kissing with tongues, intense eye contact, heavy breathing and moaning, her hands gripping his bare ass and back pulling him closer, his hands firmly holding her thighs and ass spreading her wider, smooth continuous external hip thrusting and cock grinding motion against pussy (NO penetration at all), realistic skin texture, sweat, glistening juices, natural body physics, 8k cinematic, warm soft bedroom lighting, high detail, sensual atmosphere, seamless continuation from previous kissing scene\", \"negative_prompt\": \"different face, identity drift, face change, deformed face, bad anatomy, extra limbs, extra fingers, blurry, low quality, static frame, stiff motion, robotic movement, abrupt change, bad fabric physics, clothes clipping, plastic skin, wax figure, cartoon, 3d render, watermark, merged body parts, unnatural pose, sudden penetration, actual fucking, cock inside pussy, insertion, hidden genitals, soft cock, low detail pussy, inconsistent body proportions, floating limbs, dark lighting, overexposed, man still wearing pants, pants visible, woman dress covering breasts, dress not pulled up, no cock visible, cock not touching pussy, cock floating away from pussy\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"865fdd16-05eb-4d65-9e5d-68b74c8de788\"}",
+          "output_video_path": "",
+          "output_preview_path": "",
+          "grok_review_raw": "",
+          "grok_review_status": "",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-28T17:56:09.344934+00:00"
+        },
+        {
+          "id": "iter_5339d306ca23",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 4,
+          "positive_prompt": "同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考上傳圖片起始姿勢：女人仰躺在白床單上，一開始橄欖綠洋裝還穿在身上（上身已拉低露出大胸部），雙腿大開，男人站在床邊俯身靠近她（上身穿著橄欖綠襯衫），從影片開頭開始同時進行除衣動作——男人快速除褲（拉拉鍊、褲子滑落踢開），同時女人自己或男人幫忙完全除掉下半身洋裝（女人抬臀、男人拉扯，洋裝完全脫掉扔到床下，從腰部以下全裸），除衣完成後立即露出非常硬挺粗大的勃起肉棒緊貼在她濕潤光亮的小穴外面來回滑動、摩擦、研磨（詳細陰唇特寫，龜頭明顯壓在陰唇之間滑動，帶有滴落淫水和前列腺液，純外部磨穴絕無插入），一邊俯身熱情深 French kiss 舌吻，強烈眼神對視，沉重喘息與浪叫，女人雙手緊抓男人裸露屁股和背部用力拉近，他雙手牢牢抓住她大腿和屁股將她撐得更開，從除衣到硬屌猛磨的順暢連續動作，真實皮膚紋理、汗水、光亮淫水、自然身體物理，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，完全延續參考圖片的起始姿勢",
+          "negative_prompt": "不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、插入動作、隱藏生殖器、軟屌、低細節小穴、身體比例不一致、漂浮肢體、昏暗燈光、過曝、男人從頭到尾穿褲子、褲子一直沒脫、女人下半身洋裝未完全脫掉、洋裝還穿在腰部以下、除衣動作不明顯、肉棒沒貼到小穴、肉棒漂浮遠離、看不到肉棒、除衣後衣服還在畫面中",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考上傳圖片起始姿勢：女人仰躺在白床單上，一開始橄欖綠洋裝還穿在身上（上身已拉低露出大胸部），雙腿大開，男人站在床邊俯身靠近她（上身穿著橄欖綠襯衫），從影片開頭開始同時進行除衣動作——男人快速除褲（拉拉鍊、褲子滑落踢開），同時女人自己或男人幫忙完全除掉下半身洋裝（女人抬臀、男人拉扯，洋裝完全脫掉扔到床下，從腰部以下全裸），除衣完成後立即露出非常硬挺粗大的勃起肉棒緊貼在她濕潤光亮的小穴外面來回滑動、摩擦、研磨（詳細陰唇特寫，龜頭明顯壓在陰唇之間滑動，帶有滴落淫水和前列腺液，純外部磨穴絕無插入），一邊俯身熱情深 French kiss 舌吻，強烈眼神對視，沉重喘息與浪叫，女人雙手緊抓男人裸露屁股和背部用力拉近，他雙手牢牢抓住她大腿和屁股將她撐得更開，從除衣到硬屌猛磨的順暢連續動作，真實皮膚紋理、汗水、光亮淫水、自然身體物理，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，完全延續參考圖片的起始姿勢\", \"negative_prompt\": \"不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、插入動作、隱藏生殖器、軟屌、低細節小穴、身體比例不一致、漂浮肢體、昏暗燈光、過曝、男人從頭到尾穿褲子、褲子一直沒脫、女人下半身洋裝未完全脫掉、洋裝還穿在腰部以下、除衣動作不明顯、肉棒沒貼到小穴、肉棒漂浮遠離、看不到肉棒、除衣後衣服還在畫面中\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"a0856838-cf81-4bbc-8108-e50aa004aeb4\"}",
+          "output_video_path": "",
+          "output_preview_path": "",
+          "grok_review_raw": "",
+          "grok_review_status": "",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-28T18:10:42.291071+00:00"
+        },
+        {
+          "id": "iter_10fd96d8f62d",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 5,
+          "positive_prompt": "同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考上傳圖片起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭同時快速除衣（男人除褲 + 女人抬臀讓洋裝完全脫掉扔掉），除衣完成後非常硬挺粗大的勃起肉棒緊貼在她濕潤光亮的小穴外面來回滑動、摩擦、研磨（詳細陰唇特寫，龜頭清楚壓在陰唇之間上下滑動，純外部磨穴，絕對沒有任何插入），大量透明清澈自然淫水和前列腺液拉絲滴落（真實透明光澤，無粉紅、無亮片、無特殊顏色），一邊俯身熱情深 French kiss 舌吻，強烈眼神對視，沉重喘息與浪叫，女人雙手緊抓男人裸露屁股用力拉近，他雙手抓住她大腿撐開，順暢持續外部腰部抽動猛磨小穴，真實皮膚紋理、汗水、自然透明淫水拉絲、自然身體物理，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍",
+          "negative_prompt": "不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、身體比例不一致、漂浮肢體、昏暗燈光、過曝、粉紅色淫水、亮片效果、彩色液體、發光液體、不自然顏色液體、男人穿褲子、女人衣服未完全脫掉、肉棒沒貼小穴、肉棒漂浮",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考上傳圖片起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭同時快速除衣（男人除褲 + 女人抬臀讓洋裝完全脫掉扔掉），除衣完成後非常硬挺粗大的勃起肉棒緊貼在她濕潤光亮的小穴外面來回滑動、摩擦、研磨（詳細陰唇特寫，龜頭清楚壓在陰唇之間上下滑動，純外部磨穴，絕對沒有任何插入），大量透明清澈自然淫水和前列腺液拉絲滴落（真實透明光澤，無粉紅、無亮片、無特殊顏色），一邊俯身熱情深 French kiss 舌吻，強烈眼神對視，沉重喘息與浪叫，女人雙手緊抓男人裸露屁股用力拉近，他雙手抓住她大腿撐開，順暢持續外部腰部抽動猛磨小穴，真實皮膚紋理、汗水、自然透明淫水拉絲、自然身體物理，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍\", \"negative_prompt\": \"不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、身體比例不一致、漂浮肢體、昏暗燈光、過曝、粉紅色淫水、亮片效果、彩色液體、發光液體、不自然顏色液體、男人穿褲子、女人衣服未完全脫掉、肉棒沒貼小穴、肉棒漂浮\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"7455d2ab-c275-4b2b-bd28-ad981fc27001\"}",
+          "output_video_path": "data\\projects\\project_c022d8962864\\shots\\007\\iterations\\5\\%date_yyyyMMdd_hhmmss%_00005.mp4",
+          "output_preview_path": "data\\projects\\project_c022d8962864\\shots\\007\\iterations\\5\\%date_yyyyMMdd_hhmmss%_00005_.png",
+          "grok_review_raw": "",
+          "grok_review_status": "",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-28T18:21:24.564114+00:00"
+        },
+        {
+          "id": "iter_6b74a7b87e86",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 6,
+          "positive_prompt": "同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭自然進行除衣動作（男人慢慢拉開拉鍊除褲，褲子自然滑落踢開，過程流暢自然），除衣完成後非常硬挺粗大的勃起肉棒自然彈出，緊貼在女人濕潤光亮的小穴上方（肉棒位於陰唇正上方，清楚可見），進行溫柔緩慢的外部來回摩擦、研磨（龜頭輕壓陰唇之間滑動，純外部磨穴，絕無任何插入），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，一手輕扶肉棒調整角度，溫柔緩慢有節奏的磨穴動作（讓女人感覺很舒服、很享受的表情），大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感",
+          "negative_prompt": "不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然出現、肉棒跳出不自然、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、男人沒看小穴、女人痛苦表情、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭自然進行除衣動作（男人慢慢拉開拉鍊除褲，褲子自然滑落踢開，過程流暢自然），除衣完成後非常硬挺粗大的勃起肉棒自然彈出，緊貼在女人濕潤光亮的小穴上方（肉棒位於陰唇正上方，清楚可見），進行溫柔緩慢的外部來回摩擦、研磨（龜頭輕壓陰唇之間滑動，純外部磨穴，絕無任何插入），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，一手輕扶肉棒調整角度，溫柔緩慢有節奏的磨穴動作（讓女人感覺很舒服、很享受的表情），大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感\", \"negative_prompt\": \"不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然出現、肉棒跳出不自然、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、男人沒看小穴、女人痛苦表情、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"08acc83e-75cc-4595-9f9b-abb85ea1b6f8\"}",
+          "output_video_path": "data\\projects\\project_c022d8962864\\shots\\007\\iterations\\6\\%date_yyyyMMdd_hhmmss%_00006.mp4",
+          "output_preview_path": "data\\projects\\project_c022d8962864\\shots\\007\\iterations\\6\\%date_yyyyMMdd_hhmmss%_00006_.png",
+          "grok_review_raw": "",
+          "grok_review_status": "FAIL",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-29T01:37:10.381694+00:00"
+        },
+        {
+          "id": "iter_1c1ff7097d4b",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 7,
+          "positive_prompt": "同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭自然進行除衣動作（男人慢慢拉開拉鍊除褲，褲子自然滑落踢開，過程流暢自然），除衣完成後非常硬挺粗大的勃起肉棒自然彈出，緊貼在女人濕潤光亮的小穴上方（肉棒位於陰唇正上方，清楚可見），進行溫柔緩慢的外部來回摩擦、研磨（龜頭輕壓陰唇之間滑動，純外部磨穴，絕無任何插入），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，一手輕扶肉棒調整角度，溫柔緩慢有節奏的磨穴動作（讓女人感覺很舒服、很享受的表情），大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感",
+          "negative_prompt": "不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然出現、肉棒跳出不自然、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、男人沒看小穴、女人痛苦表情、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭自然進行除衣動作（男人慢慢拉開拉鍊除褲，褲子自然滑落踢開，過程流暢自然），除衣完成後非常硬挺粗大的勃起肉棒自然彈出，緊貼在女人濕潤光亮的小穴上方（肉棒位於陰唇正上方，清楚可見），進行溫柔緩慢的外部來回摩擦、研磨（龜頭輕壓陰唇之間滑動，純外部磨穴，絕無任何插入），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，一手輕扶肉棒調整角度，溫柔緩慢有節奏的磨穴動作（讓女人感覺很舒服、很享受的表情），大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感\", \"negative_prompt\": \"不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然出現、肉棒跳出不自然、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、男人沒看小穴、女人痛苦表情、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"8c26ff2e-31d7-48f4-a7f8-3ec1ff92beec\"}",
+          "output_video_path": "",
+          "output_preview_path": "",
+          "grok_review_raw": "",
+          "grok_review_status": "",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-29T02:11:04.501263+00:00"
+        },
+        {
+          "id": "iter_6c9b71faf3c9",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 8,
+          "positive_prompt": "同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從影片開頭男人自己慢慢解開扣子、拉開拉鍊並主動脫下褲子（過程自然流暢，非突然滑落），除褲完成後已經非常硬挺粗大的勃起肉棒立刻自然露出（強調肉棒從頭到尾保持極度堅硬），緊貼在女人濕潤光亮的小穴上方（肉棒位於陰唇正上方清楚可見），進行溫柔緩慢有節奏的外部來回摩擦、研磨（龜頭輕壓陰唇之間滑動，純外部磨穴，絕無任何插入），女人主動伸手握住並輕柔撫摸男人的硬挺肉棒（主動摸肉棒、引導角度），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，溫柔緩慢讓女人感覺很舒服很享受的表情，大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感",
+          "negative_prompt": "不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然跳出、肉棒從女人身體跳出、肉棒突然出現、褲子滑落、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、女人沒主動摸肉棒、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從影片開頭男人自己慢慢解開扣子、拉開拉鍊並主動脫下褲子（過程自然流暢，非突然滑落），除褲完成後已經非常硬挺粗大的勃起肉棒立刻自然露出（強調肉棒從頭到尾保持極度堅硬），緊貼在女人濕潤光亮的小穴上方（肉棒位於陰唇正上方清楚可見），進行溫柔緩慢有節奏的外部來回摩擦、研磨（龜頭輕壓陰唇之間滑動，純外部磨穴，絕無任何插入），女人主動伸手握住並輕柔撫摸男人的硬挺肉棒（主動摸肉棒、引導角度），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，溫柔緩慢讓女人感覺很舒服很享受的表情，大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感\", \"negative_prompt\": \"不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然跳出、肉棒從女人身體跳出、肉棒突然出現、褲子滑落、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、女人沒主動摸肉棒、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"ef6d2e57-2a67-499e-a0d7-01319c85fd59\"}",
+          "output_video_path": "",
+          "output_preview_path": "",
+          "grok_review_raw": "",
+          "grok_review_status": "",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-29T02:20:49.350047+00:00"
+        },
+        {
+          "id": "iter_eead95bddca5",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_number": 9,
+          "positive_prompt": "同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭自然進行**詳細個人成人片除衣過程**：男人先慢慢拉開褲子拉鍊，褲子自然滑落到腳踝並踢開，露出緊繃的內褲，接著用手緩慢把內褲往下拉脫掉（個人成人片經典風格），**硬挺粗大的勃起肉棒立刻從內褲裡用力彈跳出來，前後自然晃動幾下**，男人隨後微微壓低腰部，用手輕扶肉棒根部，**讓粗大龜頭從上方慢慢落下，緊貼在女人濕潤光亮的小穴上方**，肉棒整根躺在陰唇表面，接著開始溫柔緩慢的外部來回摩擦、研磨（龜頭輕壓陰唇之間上下滑動，純外部磨穴，絕無任何插入），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，一手輕扶肉棒調整角度，溫柔緩慢有節奏的磨穴動作（讓女人感覺很舒服、很享受的表情），大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感",
+          "negative_prompt": "不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然出現、肉棒跳出不自然、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、男人沒看小穴、女人痛苦表情、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作、內褲突然消失、除內褲過程不明顯、肉棒沒有彈出晃動、直接跳到貼穴、肉棒瞬間貼上",
+          "motion_notes": "",
+          "comfy_request_payload": "{\"wan_prompt\": \"同一位一致的美麗亞洲情侶在豪華酒店臥室，嚴格參考起始姿勢：女人仰躺在白床單上，橄欖綠洋裝拉到腰部以上（上身全裸，大胸部暴露），雙腿大開，男人站在床邊俯身（上身穿橄欖綠襯衫），從開頭自然進行**詳細個人成人片除衣過程**：男人先慢慢拉開褲子拉鍊，褲子自然滑落到腳踝並踢開，露出緊繃的內褲，接著用手緩慢把內褲往下拉脫掉（個人成人片經典風格），**硬挺粗大的勃起肉棒立刻從內褲裡用力彈跳出來，前後自然晃動幾下**，男人隨後微微壓低腰部，用手輕扶肉棒根部，**讓粗大龜頭從上方慢慢落下，緊貼在女人濕潤光亮的小穴上方**，肉棒整根躺在陰唇表面，接著開始溫柔緩慢的外部來回摩擦、研磨（龜頭輕壓陰唇之間上下滑動，純外部磨穴，絕無任何插入），男人低頭專注看著兩人結合處，眼神專注看小穴磨動（不一直吻），女人抬頭看男人或閉眼享受呻吟，男人一手扶她大腿，一手輕扶肉棒調整角度，溫柔緩慢有節奏的磨穴動作（讓女人感覺很舒服、很享受的表情），大量透明清澈自然淫水拉絲滴落，真實皮膚紋理、汗水、自然光澤，8k 電影級，溫暖柔和臥室燈光，高細節，感官氛圍，慢速優雅前戲感\", \"negative_prompt\": \"不同臉孔、身份漂移、臉部變化、變形臉部、壞解剖學、多餘肢體、多餘手指、模糊、低品質、靜止畫面、僵硬動作、機器人運動、突然變化、壞布料物理、衣服穿模、塑膠皮膚、蠟像、卡通、3D渲染、水印、身體部位合併、不自然姿勢、突然插入、真正在幹、肉棒插入小穴、任何插入、插入動作、隱藏生殖器、軟屌、低細節小穴、肉棒突然出現、肉棒跳出不自然、肉棒位置錯誤、肉棒沒貼在小穴上方、快速猛烈抽插、男人一直吻導致動作忙亂、男人沒看小穴、女人痛苦表情、粉紅色淫水、亮片液體、不自然顏色液體、磨穴速度過快、暴力動作、內褲突然消失、除內褲過程不明顯、肉棒沒有彈出晃動、直接跳到貼穴、肉棒瞬間貼上\", \"reference_image_path\": \"./data/20260427_023156_00001_last_frame.png\", \"comfy_prompt_id\": \"9556765f-71a4-404b-9034-cfac59232680\"}",
+          "output_video_path": "",
+          "output_preview_path": "",
+          "grok_review_raw": "",
+          "grok_review_status": "",
+          "grok_revision_notes": "",
+          "created_at": "2026-04-29T03:01:53.848593+00:00"
+        }
+      ],
       "approvals": [],
       "events": [
         {
@@ -138,6 +202,84 @@
           "payload": "{\"source_file\": \"/Users/hello/Desktop/grokWorkflow/raw/001.json\"}",
           "shot_id": null,
           "iteration_id": null
+        },
+        {
+          "event_type": "wan_generation_placeholder_called",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": null
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_d08b1eae4fb2\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_d08b1eae4fb2"
+        },
+        {
+          "event_type": "wan_generation_completed",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_d08b1eae4fb2\", \"job_id\": \"b7514930-3e9b-4c7f-9d00-4c8688b87eb3\", \"video_path\": \"outputs\\\\Wan2.2_Remix_V3\\\\%date:yyyyMMdd_hhmmss%_00001.mp4\", \"preview_path\": \"\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_d08b1eae4fb2"
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_e846701df9cb\", \"job_id\": \"4c750539-3da6-474c-8fb4-9af5e00adc6f\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_e846701df9cb"
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_54c156588eae\", \"job_id\": \"865fdd16-05eb-4d65-9e5d-68b74c8de788\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_54c156588eae"
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_5339d306ca23\", \"job_id\": \"a0856838-cf81-4bbc-8108-e50aa004aeb4\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_5339d306ca23"
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_10fd96d8f62d\", \"job_id\": \"7455d2ab-c275-4b2b-bd28-ad981fc27001\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_10fd96d8f62d"
+        },
+        {
+          "event_type": "wan_generation_completed",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_10fd96d8f62d\", \"job_id\": \"\", \"video_path\": \"outputs\\\\Wan2.2_Remix_V3\\\\%date_yyyyMMdd_hhmmss%_00005.mp4\", \"preview_path\": \"outputs\\\\Wan2.2_Remix_V3\\\\last_frame\\\\%date_yyyyMMdd_hhmmss%_00005_.png\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_10fd96d8f62d"
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_6b74a7b87e86\", \"job_id\": \"08acc83e-75cc-4595-9f9b-abb85ea1b6f8\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_6b74a7b87e86"
+        },
+        {
+          "event_type": "wan_generation_completed",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_6b74a7b87e86\", \"job_id\": \"08acc83e-75cc-4595-9f9b-abb85ea1b6f8\", \"video_path\": \"outputs\\\\Wan2.2_Remix_V3\\\\%date_yyyyMMdd_hhmmss%_00006.mp4\", \"preview_path\": \"outputs\\\\Wan2.2_Remix_V3\\\\last_frame\\\\%date_yyyyMMdd_hhmmss%_00006_.png\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_6b74a7b87e86"
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_1c1ff7097d4b\", \"job_id\": \"8c26ff2e-31d7-48f4-a7f8-3ec1ff92beec\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_1c1ff7097d4b"
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_6c9b71faf3c9\", \"job_id\": \"ef6d2e57-2a67-499e-a0d7-01319c85fd59\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_6c9b71faf3c9"
+        },
+        {
+          "event_type": "wan_generation_started",
+          "payload": "{\"shot_id\": \"shot_85f7bb800f44\", \"iteration_id\": \"iter_eead95bddca5\", \"job_id\": \"9556765f-71a4-404b-9034-cfac59232680\"}",
+          "shot_id": "shot_85f7bb800f44",
+          "iteration_id": "iter_eead95bddca5"
         }
       ]
     }

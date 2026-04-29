@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
+import urllib.error
+import urllib.request
 from dataclasses import asdict
 
 from grok_workflow.adapters.base import GrokAdapter
@@ -22,20 +25,109 @@ class CodexCliGrokAdapter(GrokAdapter):
         return StructuredPromptResult(**result)
 
     def review_video(self, shot_context: ShotContext, iteration: ShotIteration, video_path: str) -> ReviewResult:
+        if self.config.review_first_landing:
+            return self._review_video_with_playwright(iteration, video_path)
         payload = self._review_payload(shot_context, iteration, video_path)
         result = self._run_cli(payload)
         return ReviewResult(**self._normalize_review_result(result))
 
+    def _review_video_with_playwright(self, iteration: ShotIteration, video_path: str) -> ReviewResult:
+        if not self._chrome_debug_reachable():
+            return ReviewResult(
+                status="error",
+                review_result="FAIL",
+                error_code="chrome_debug_unreachable",
+                error_message=(
+                    f"Chrome DevTools is not reachable at {self.config.review_cdp_url}. "
+                    "Start Chrome with --remote-debugging-port=9222, then run /check_status again."
+                ),
+            )
+        command = [
+            sys.executable,
+            str(self.config.review_script_path),
+            "--connect-existing",
+            "--cdp-url",
+            self.config.review_cdp_url,
+            "--first-landing",
+            self.config.review_first_landing,
+            "--video-path",
+            video_path,
+            "--positive-prompt",
+            iteration.positive_prompt,
+            "--negative-prompt",
+            iteration.negative_prompt,
+            "--send-review-prompt",
+            "--submit-review-prompt",
+            "--read-review-result",
+            "--timeout-ms",
+            str(self.config.review_timeout_ms),
+            "--result-timeout-ms",
+            str(self.config.review_result_timeout_ms),
+        ]
+        try:
+            completed = subprocess.run(
+                command,
+                cwd=self.config.working_directory,
+                capture_output=True,
+                text=True,
+                timeout=max(self.config.timeout_seconds, self.config.review_result_timeout_ms // 1000 + 60),
+                check=False,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return ReviewResult(
+                status="error",
+                review_result="FAIL",
+                error_code="grok_review_failed",
+                error_message=str(exc),
+                raw_text="",
+            )
+        output = completed.stdout.strip().splitlines()[-1] if completed.stdout.strip() else ""
+        if completed.returncode != 0 and not output:
+            return ReviewResult(
+                status="error",
+                review_result="FAIL",
+                error_code="grok_review_failed",
+                error_message=completed.stderr.strip() or "Grok review script failed",
+                raw_text=completed.stdout.strip(),
+            )
+        try:
+            result = json.loads(output)
+        except json.JSONDecodeError as exc:
+            return ReviewResult(
+                status="error",
+                review_result="FAIL",
+                error_code="invalid_review_json",
+                error_message=f"Grok review script returned invalid JSON: {exc}",
+                raw_text=completed.stdout,
+            )
+        return ReviewResult(**self._normalize_review_result(result))
+
+    def _chrome_debug_reachable(self) -> bool:
+        probe_url = self.config.review_cdp_url.rstrip("/") + "/json/version"
+        try:
+            with urllib.request.urlopen(probe_url, timeout=3):
+                return True
+        except (urllib.error.URLError, OSError):
+            return False
+
     def _run_cli(self, payload: dict[str, object]) -> dict[str, object]:
         command = [*self.config.command, json.dumps(payload)]
-        completed = subprocess.run(
-            command,
-            cwd=self.config.working_directory,
-            capture_output=True,
-            text=True,
-            timeout=self.config.timeout_seconds,
-            check=False,
-        )
+        try:
+            completed = subprocess.run(
+                command,
+                cwd=self.config.working_directory,
+                capture_output=True,
+                text=True,
+                timeout=self.config.timeout_seconds,
+                check=False,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return {
+                "status": "error",
+                "error_code": "codex_cli_failed",
+                "error_message": str(exc),
+                "raw_text": "",
+            }
         if completed.returncode != 0:
             return {
                 "status": "error",

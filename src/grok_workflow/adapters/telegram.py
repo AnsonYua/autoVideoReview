@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import json
+import mimetypes
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
 from grok_workflow.adapters.base import TelegramGateway
 from grok_workflow.config import TelegramConfig
@@ -30,6 +32,15 @@ class TelegramBotGateway(TelegramGateway):
             f"Reply with /approve {shot_id} {iteration_id} or /reject {shot_id} {iteration_id}"
         )
         self._send_message(message)
+
+    def send_video(self, video_path: str, caption: str) -> None:
+        if not self.config.bot_token or not self.config.chat_id:
+            return
+        path = Path(video_path)
+        if not path.exists():
+            self._send_message(f"{caption}\nVideo file not found: {video_path}")
+            return
+        self._send_multipart("sendVideo", path, "video", {"chat_id": self.config.chat_id, "caption": caption})
 
     def consume_command(self) -> ControlEvent | None:
         updates = self._get_updates()
@@ -67,15 +78,15 @@ class TelegramBotGateway(TelegramGateway):
                 "menu": "menu",
                 "show menu": "menu",
                 "help": "menu",
-                "check status": "status",
-                "start project": "start_project",
-                "pause project": "pause",
-                "resume project": "resume",
+                "check status": "check_status",
             }
             if normalized_text in button_commands:
-                return ControlEvent(event_type=button_commands[normalized_text], payload={"raw_text": text})
+                raw_text = "/check_status" if normalized_text == "check status" else text
+                return ControlEvent(event_type=button_commands[normalized_text], payload={"raw_text": raw_text})
             return ControlEvent(event_type="message", payload={"raw_text": text})
         command = command.split("@", 1)[0]
+        if command.startswith("/shot_"):
+            return ControlEvent(event_type="shot", shot_id=command[1:], payload={"raw_text": text})
         if command in {"/approve", "/reject"} and len(parts) >= 3:
             return ControlEvent(
                 event_type=command[1:],
@@ -100,6 +111,38 @@ class TelegramBotGateway(TelegramGateway):
             return
         payload = urllib.parse.urlencode({"callback_query_id": callback_query_id}).encode("utf-8")
         request = urllib.request.Request(self._api_url("answerCallbackQuery"), data=payload, method="POST")
+        with urllib.request.urlopen(request):
+            return
+
+    def _send_multipart(self, method: str, file_path: Path, file_field: str, fields: dict[str, str]) -> None:
+        boundary = f"----grokWorkflowTelegram{int(time.time() * 1000)}"
+        body_parts = []
+        for key, value in fields.items():
+            body_parts.extend(
+                [
+                    f"--{boundary}\r\n".encode("utf-8"),
+                    f'Content-Disposition: form-data; name="{key}"\r\n\r\n'.encode("utf-8"),
+                    str(value).encode("utf-8"),
+                    b"\r\n",
+                ]
+            )
+        content_type = mimetypes.guess_type(file_path.name)[0] or "application/octet-stream"
+        body_parts.extend(
+            [
+                f"--{boundary}\r\n".encode("utf-8"),
+                f'Content-Disposition: form-data; name="{file_field}"; filename="{file_path.name}"\r\n'.encode("utf-8"),
+                f"Content-Type: {content_type}\r\n\r\n".encode("utf-8"),
+                file_path.read_bytes(),
+                b"\r\n",
+                f"--{boundary}--\r\n".encode("utf-8"),
+            ]
+        )
+        request = urllib.request.Request(
+            self._api_url(method),
+            data=b"".join(body_parts),
+            headers={"Content-Type": f"multipart/form-data; boundary={boundary}"},
+            method="POST",
+        )
         with urllib.request.urlopen(request):
             return
 

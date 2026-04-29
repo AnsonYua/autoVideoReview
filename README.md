@@ -29,7 +29,11 @@ TELEGRAM_BOT_TOKEN="..."
 TELEGRAM_CHAT_ID="123456789"
 CODEX_COMMAND="codex"
 COMFYUI_BASE_URL="http://127.0.0.1:8188"
-COMFYUI_WORKFLOW_PATH="./workflow.json"
+COMFYUI_WORKFLOW_PATH="./sample_data/wan22-remix-face-lock-autosave-lastframe-clip4.json"
+COMFYUI_OUTPUT_DIR="./outputs"
+GROK_REVIEW_SCRIPT_PATH="./tools/playwright_grok_review.py"
+GROK_REVIEW_FIRST_LANDING="https://grok.com/project/66b6fdb6-3ae4-4909-b421-59f7fc56ef09?chat=6c93a5e3-373d-4f12-b0df-7f2e588d2016&rid=40c486af-6668-4fbb-8d22-b9759e67ffc1"
+GROK_REVIEW_CDP_URL="http://127.0.0.1:9222"
 WORKFLOW_STORAGE_PATH="./data/projects.json"
 PROJECT_ID="project_xxxxx"
 ```
@@ -41,14 +45,8 @@ Supported Telegram commands:
 ```text
 /menu
 /help
-check status
-start project
-pause project
-resume project
-/status PROJECT_ID
-/start_project PROJECT_ID
-/pause PROJECT_ID
-/resume PROJECT_ID
+/check_status
+/shot_SHOT_ID
 /approve SHOT_ID ITERATION_ID
 /reject SHOT_ID ITERATION_ID
 ```

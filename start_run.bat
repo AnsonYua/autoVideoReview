@@ -28,7 +28,11 @@ if not defined TELEGRAM_BOT_TOKEN set "TELEGRAM_BOT_TOKEN=8531053205:AAGuLjFSrfW
 if not defined TELEGRAM_CHAT_ID set "TELEGRAM_CHAT_ID=8682734076"
 if not defined CODEX_COMMAND set "CODEX_COMMAND=codex"
 if not defined COMFYUI_BASE_URL set "COMFYUI_BASE_URL=http://127.0.0.1:8188"
-if not defined COMFYUI_WORKFLOW_PATH set "COMFYUI_WORKFLOW_PATH=%ROOT_DIR%\workflow.json"
+if not defined COMFYUI_WORKFLOW_PATH set "COMFYUI_WORKFLOW_PATH=%ROOT_DIR%\sample_data\wan22-remix-face-lock-autosave-lastframe-clip4.json"
+if not defined COMFYUI_OUTPUT_DIR set "COMFYUI_OUTPUT_DIR=%ROOT_DIR%\outputs"
+if not defined GROK_REVIEW_SCRIPT_PATH set "GROK_REVIEW_SCRIPT_PATH=%ROOT_DIR%\tools\playwright_grok_review.py"
+if not defined GROK_REVIEW_FIRST_LANDING set "GROK_REVIEW_FIRST_LANDING=https://grok.com/project/66b6fdb6-3ae4-4909-b421-59f7fc56ef09?chat=6c93a5e3-373d-4f12-b0df-7f2e588d2016&rid=40c486af-6668-4fbb-8d22-b9759e67ffc1"
+if not defined GROK_REVIEW_CDP_URL set "GROK_REVIEW_CDP_URL=http://127.0.0.1:9222"
 if not defined WORKFLOW_STORAGE_PATH set "WORKFLOW_STORAGE_PATH=%ROOT_DIR%\data\projects.json"
 if not defined PROJECT_ID set "PROJECT_ID=project_c022d8962864"
 

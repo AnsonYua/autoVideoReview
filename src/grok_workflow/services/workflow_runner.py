@@ -40,6 +40,16 @@ class WorkflowRunner:
             self._last_result = result
         return result
 
+    def start_shot_generation(self, project_id: str, shot_id: str) -> RunnerResult:
+        with self._lock:
+            if self._thread is not None and self._thread.is_alive():
+                return RunnerResult(state=RunnerState.BUSY.value, project_id=project_id, shot_id=shot_id)
+            self._stop_requested.clear()
+            self._last_result = RunnerResult(state=RunnerState.STARTED.value, project_id=project_id, shot_id=shot_id)
+            self._thread = threading.Thread(target=self._run_shot_generation, args=(project_id, shot_id), daemon=True)
+            self._thread.start()
+            return self._last_result
+
     def get_last_result(self) -> RunnerResult:
         with self._lock:
             return self._last_result
@@ -67,6 +77,12 @@ class WorkflowRunner:
 
     def _run_project(self, project_id: str) -> None:
         result = self.run_until_blocked(project_id)
+        with self._lock:
+            self._last_result = result
+            self._thread = None
+
+    def _run_shot_generation(self, project_id: str, shot_id: str) -> None:
+        result = self.orchestrator.generate_shot_video(project_id, shot_id)
         with self._lock:
             self._last_result = result
             self._thread = None
